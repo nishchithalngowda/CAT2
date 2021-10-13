@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="stylelog.css">
+
+
+  </head>
+  <body>
+    <br>
+    <br>
+  <font color="white">
+    <h2 align="center"><b>login with valid useraname and password</b></h2>
+    </font>
+
+
+      <br>
+      <br>
+
+
+    <form class="box" action="login1.html" method="post">
+
+      <h1>Login</h1>
+      <input type="text" name=""  placeholder="Enter Username" id="username">
+        <input type="password" name="" placeholder="Enter Password" id="password">
+          <input type="submit" name=""  value="Login" onclick="validate()">
+          <br>
+
+    </form>
+    <script>
+      function validate() {
+        var username=document.getElementById("username").value;
+        var password=document.getElementById("password").value;
+        if(username=="nishchitha" && password=="gowda")
+        {
+          alert("login succesfully");
+
+        }
+            else
+            {
+              alert("login failed");
+
+            }
+
+
+
+
+      }
+      </script>
+
+
+
+
+  </body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<?DOCTYPE note
+[
+<!ELEMENT note (Event_Name,participants,Event_Heads)>
+<!ELEMENT Event_Name(#PCDATA)>
+<!ELEMENT participants (#PCDATA)>
+<!ELEMENT Event_Heads (#PCDATA)>
+
+]?>
+<?xml-stylesheet type="text/xsl" href="guidelines.xsl" ?>
+<gateway>
+<details>
+<Event_Name> IT quiz</Event_Name>
+<participants>abhinav,niya,yashshwini</participants>
+<Event_Heads>abhinav@cs.christuniversity.in</Event_Heads>
+</details>
+<details>
+  <Event_Name> IT manager</Event_Name>
+  <participants>nishchitha,adwaith</participants>
+  <Event_Heads>nishchitha.ln@cs.christuniversity.in</Event_Heads>
+</details>
+<details>
+  <Event_Name>Coding</Event_Name>
+  <participants>shrinivas,harish</participants>
+  <Event_Heads>shrinivas@christuniversity.in</Event_Heads>
+</details>
+<details>
+  <Event_Name> Hackaton</Event_Name>
+  <participants>sumit,chanchal</participants>
+  <Event_Heads>sumit@christuniversity.in</Event_Heads>
+</details>
+<details>
+  <Event_Name> Tresure hunt</Event_Name>
+  <participants>lokesh,divya</participants>
+  <Event_Heads>lokesh@christuniversity.in</Event_Heads>
+</details>
+<details>
+  <Event_Name> Techxempture</Event_Name>
+  <participants>harish,suman</participants>
+  <Event_Heads>harish@christuniversity.in</Event_Heads>
+</details>
+
+
+</gateway>

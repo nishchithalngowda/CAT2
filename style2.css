@@ -1,0 +1,78 @@
+*
+{
+  padding: 0;
+  margin:0;
+    box-sizing: border-box;
+}
+body{
+  background-image: url(background.jpg);
+  background-size: cover;
+  background-position: center;
+
+  font-family: sans-serif;
+}
+.Menu-List
+{
+  background:rgb(106, 11, 28);
+  text-align: center;
+}
+.Menu-List ul
+{
+  display:inline-flex;
+  list-style: none;
+  color:#fff;
+}
+.Menu-List ul li{
+  width: 120px;
+  margin: 15px;
+  padding: 15px;
+
+}
+.Menu-List ul li a
+{
+  text-decoration: none;
+  color:#fff;
+}
+.active,.Menu-List ul li:hover
+{
+  background:#440D17;
+  border-radius:3px;
+}
+.Menu-List.fa {
+  {margin-right: 8px;
+  }
+.sub-menu-1
+{
+  display: none;
+}
+.Menu-List ul li:hover .sub-menu-1
+{
+  display: block;
+  position:absolute;
+  background: rgb(68, 13, 23);
+  margin-top: 10px;
+  margin-left: -15px;
+}
+.Menu-List ul li:hover .sub-menu-1 ul
+{
+  display:block;
+  margin: 10px;
+
+}
+.Menu-List ul li:hover .sub-menu-1 ul li
+{
+  width: 150px;
+  padding:10px;
+  border-bottom: 1px dotted #fff;
+  background: transparent;
+  border-radius: 0;
+  text-align: left;
+}
+.Menu-List ul li:hover .sub-menu-1 ul li:last-child
+{
+  border-bottom:none;
+}
+.Menu-List ul li:hover .sub-menu-1 ul li a:hover
+{
+  color: #b2ff00;
+}

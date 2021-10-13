@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gateways Registration Form</title>
+    <link rel="stylesheet" type="text/css" href="stylereg.css" />
+    <script>
+        // Defining a function to display error message
+        function printError(elemId, hintMsg) {
+            document.getElementById(elemId).innerHTML = hintMsg;
+        }
+
+        function passNote()
+        {
+            alert("Please include atleast one special character! To make the password stronger");
+        }
+
+        function tradeType1() {
+                alert("This is for daily spot trading!");
+            }
+
+        // Defining a function to validate form
+        function validateForm() {
+            // Retrieving the values of form elements
+            var name = document.contactForm.name.value;
+            var email = document.contactForm.email.value;
+            var mobile = document.contactForm.mobile.value;
+            var date = document.contactForm.date.value;
+            var branch =document.contactForm.branch.value;
+            var universityname =document.contactForm.universityname.value;
+            var age =document.contactForm.age.value;
+            var useranme =document.contactForm.username.value;
+
+
+            var state = document.contactForm.state.value;
+            var gender = document.contactForm.gender.value;
+            var ref = document.contactForm.referral.value;
+            var pass = document.contactForm.password.value;
+            var accType = [];
+            var checkboxes = document.getElementsByName("accType[]");
+            for (var i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    // Populate accType array with selected values
+                    accType.push(checkboxes[i].value);
+                }
+            }
+
+            // Defining error variables with a default value
+            var nameErr = emailErr = mobileErr = stateErr = genderErr = true;
+
+            // Validate name
+            if (name == "") {
+                printError("nameErr", "Please enter your name");
+            } else {
+                var regex = /^[a-zA-Z\s]+$/;
+                if (regex.test(name) === false) {
+                    printError("nameErr", "Please enter a valid name");
+                } else {
+                    printError("nameErr", "");
+                    nameErr = false;
+                }
+            }
+
+            // Validate email address
+            if (email == "") {
+                printError("emailErr", "Please enter your email address");
+            } else {
+                // Regular expression for basic email validation
+                var regex = /^\S+@\S+\.\S+$/;
+                if (regex.test(email) === false) {
+                    printError("emailErr", "Please enter a valid email address");
+                } else {
+                    printError("emailErr", "");
+                    emailErr = false;
+                }
+            }
+
+            // Validate password
+            if (pass == "") {
+                printError("passErr", "Please enter your password");
+            }
+            if (username == "") {
+                printError("usernameErr", "Please enter your user name");
+            } else {
+                var regex = /^[a-zA-Z\s]+$/;
+                if (regex.test(name) === false) {
+                    printError("usernameErr", "Please enter a valid user name");
+                } else {
+                    printError("usernameErr", "");
+                    nameErr = false;
+                }
+            }
+
+            // Validate mobile number
+            if (mobile == "") {
+                printError("mobileErr", "Please enter your mobile number");
+            } else {
+                var regex = /^[1-9]\d{9}$/;
+                if (regex.test(mobile) === false) {
+                    printError("mobileErr", "Please enter a valid 10 digit mobile number");
+                } else {
+                    printError("mobileErr", "");
+                    mobileErr = false;
+                }
+            }
+
+            if (date == "") {
+                printError("dateErr", "Please select your date of birth");
+            } else {
+                printError("dateErr", "");
+              dateErr = false;
+            }
+
+            // Validate country
+            if (country == "Select") {
+                printError("stateErr", "Please select your state");
+            } else {
+                printError("stateErr", "");
+                countryErr = false;
+            }
+            if (branch == "Select") {
+                printError("branchErr", "Please select your branch");
+            } else {
+                printError("branchErr", "");
+                countryErr = false;
+            }
+
+
+            // Validate gender
+            if (gender == "") {
+                printError("genderErr", "Please select your gender");
+            } else {
+                printError("genderErr", "");
+                genderErr = false;
+            }
+
+             // Validate refferal
+            if (ref == "") {
+                printError("referralErr", "Please select your referral URL");
+            } else {
+                const regex = /^(ftp|https?):\/\/+(www\.)gateway.in\/2047[0-9]{3}$/;
+                if (regex.test(mobile) === false) {
+                    printError("mobileErr", "Please enter a valid 10 digit mobile number");
+                } else {
+                    printError("mobileErr", "");
+                    mobileErr = false;
+                }
+            }
+
+            // Prevent the form from being submitted if there are any errors
+            if ((nameErr || emailErr || mobileErr || stateErr ||dateErr|| genderErr || passErr || referralErr) == true) {
+                return false;
+            } else {
+                // Creating a string from input data for preview
+                var dataPreview = "You've entered the following details: \n" +
+                    "Full Name: " + name + "\n" +
+                    "Email Address: " + email + "\n" +
+                    "Password: " + pass + "\n" +
+                    "Mobile Number: " + mobile + "\n" +
+                    "Date:"+date+"\n"+
+                    "State: " + state + "\n" +
+                    "Branch: " + branch + "\n" +
+                    "Username: " + username+ "\n" +
+
+                    "Gender: " + gender + "\n";
+                    "Referral Address: " + ref + "\n";
+                if (accType.length) {
+                    dataPreview += "accType: " + accType.join(", ");
+                }
+                // Display input data in a dialog box before submitting the form
+                alert(dataPreview);
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <form name="contactForm" onsubmit="return validateForm()" action="./Bnce_Login.html" method="post">
+        <h2>Registration Form</h2>
+        <div class="row">
+            <label>Full Name</label>
+            <input type="text" name="name">
+            <div class="error" id="nameErr"></div>
+        </div>
+        <div class="row">
+            <label>Email Address</label>
+            <input type="text" name="email">
+            <div class="error" id="emailErr"></div>
+        </div>
+        <div class="row">
+            <label>Password</label>
+            <input type="password" name="password" onclick="passNote()">
+            <div class="error" id="passErr"></div>
+        </div>
+        <div class="row">
+            <label>Mobile Number</label>
+            <input type="text" name="mobile" maxlength="10">
+            <div class="error" id="mobileErr"></div>
+        </div>
+        <div class="row">
+            <label>Username</label>
+            <input type="text" name="username">
+            <div class="error" id="usernameErr"></div>
+        </div>
+        <div class="field-row">
+      <label class="form-label" for="dateOfBirth"><b>Date of birth<b></label>
+      <input type="date" id="dateOfBirth" class="field date-field dob-field" min="1900-01-01" max="2015-09-18"  required>
+      <span class="message"></span>
+   </div>
+        <div class="row">
+            <label>State</label>
+            <select name="State">
+                <option>Select</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Tamil nadu</option>
+                <option>Delhi</option>
+                <option>Gujrath</option>
+                <option>Assam</option>
+                <option>Maharastra</option>
+            </select>
+            <div class="error" id="stateErr"></div>
+        </div>
+        <div class="row">
+            <label>Branch</label>
+            <select name="Branch">
+                <option>Select</option>
+                <option>MSc</option>
+                <option>MDs</option>
+                <option>MCA</option>
+
+            </select>
+            <div class="error" id="branchErr"></div>
+        </div>
+        <div class="row">
+            <label>Gender</label>
+            <div class="form-inline">
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+            </div>
+            <div class="error" id="genderErr"></div>
+        </div>
+        <div class="row">
+            <label>Event Participation <i></i></label>
+            <div class="form-inline">
+                <label><input type="checkbox" name="accType[]" value="Designing " onfocus="tradeType1()"> Designing </label>
+                <label><input type="checkbox" name="accType[]" value="IT quiz"> IT quiz </label>
+                <label><input type="checkbox" name="accType[]" value="TresureHunt">TresureHunt </label>
+<textarea id="" rows="2" cols="30" name="other intrested event name" form="form" required></textarea>
+
+            </div>
+        </div>
+
+
+<div class="row">
+            <label>Referral URL</label>
+            <input type="text" name="referral">
+            <div class="error" id="referralErr"></div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Submit" onclick="validate()">
+
+        </div>
+    </form>
+
+</body>
+
+</html>
